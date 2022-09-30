@@ -1,4 +1,4 @@
-package com.tecfit.gymspring;
+package com.tecfit;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

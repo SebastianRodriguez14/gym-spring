@@ -22,6 +22,8 @@ public class Product {
     private Double Price;
     private Double Discount;
     private boolean Status;
-    private String Image;
+    @ManyToOne
+    @JoinColumn(name = "Image", nullable = false)
+    private File Image;
 
 }

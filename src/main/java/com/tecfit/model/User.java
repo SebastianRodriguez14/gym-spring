@@ -24,4 +24,8 @@ public class User {
     private String Lastname;
     private String Phone;
     private Boolean Membership;
+
+    @ManyToOne
+    @JoinColumn(name = "Image", nullable = false)
+    private File Image;
 }

@@ -12,17 +12,20 @@ import javax.persistence.*;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Table(name = "trainer")
-public class Trainer {
+@Table(name = "user")
+public class User {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer Id_trainer;
+    private Integer Id_user;
+    private String Email;
+    private String Password;
     private String Name;
     private String Lastname;
-    private String Description;
+    private String Phone;
+    private Boolean Membership;
 
     @ManyToOne
-    @JoinColumn(name = "File", nullable = false)
-    private File File;
+    @JoinColumn(name = "Image", nullable = false)
+    private File Image;
 }

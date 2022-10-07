@@ -26,6 +26,6 @@ public class User {
     private Boolean Membership;
 
     @ManyToOne
-    @JoinColumn(name = "Image", nullable = false)
+    @JoinColumn(name = "Image")
     private File Image;
 }

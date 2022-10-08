@@ -5,6 +5,8 @@ import com.tecfit.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Collection;
+
 @RestController
 @CrossOrigin("*")
 @RequestMapping("user")
@@ -13,6 +15,11 @@ public class UserControler {
     @Autowired
     private UserService userService;
 
+
+    @GetMapping("/all")
+    public Collection<User> findAll(){
+        return userService.findAll();
+    }
 
     @PostMapping("/save")
     public User add(@RequestBody User user){

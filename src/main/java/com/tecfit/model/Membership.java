@@ -22,5 +22,8 @@ public class Membership {
     private Date Start_date;
     private Date Expiration_date;
     private Double Payment;
-    private Integer User;
+
+    @OneToOne
+    @JoinColumn(name = "User")
+    private User User;
 }

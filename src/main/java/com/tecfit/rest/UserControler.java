@@ -18,4 +18,10 @@ public class UserControler {
     public User add(@RequestBody User user){
         return userService.save(user);
     }
+
+    @GetMapping("/search/{Email}")
+    public User findByEmail(@PathVariable("Email")String Email) throws Exception {
+        return userService.findByEmail(Email);
+    }
+
 }

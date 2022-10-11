@@ -2,16 +2,23 @@ package com.tecfit.service;
 
 import com.tecfit.model.Membership;
 import com.tecfit.repository.MembershipRepository;
+import com.tecfit.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.Collection;
+import java.util.Optional;
 
 @Service
 public class MembershipServiceImpl implements MembershipService{
 
+
+
     @Autowired
     private MembershipRepository membershipRepository;
+
+    @Autowired
+    private UserRepository userRepository;
 
     @Override
     public Collection<Membership> findAll() {
@@ -21,5 +28,18 @@ public class MembershipServiceImpl implements MembershipService{
     @Override
     public Membership findById(Integer id) {
         return membershipRepository.findById(id).get();
+    }
+
+    @Override
+    public Optional<Membership> checkMembershipByUser(Integer id_user) {
+
+        Optional<Membership> membership = membershipRepository.checkMembershipByUser(id_user);
+
+        if (!membership.isPresent()){
+            userRepository.updateMembership(false, id_user);
+        }
+
+        return membership;
+
     }
 }

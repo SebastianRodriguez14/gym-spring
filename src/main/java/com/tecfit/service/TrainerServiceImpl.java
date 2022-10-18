@@ -18,12 +18,6 @@ public class TrainerServiceImpl implements TrainerService{
     @Autowired
     private TrainerRepository trainerRepository;
 
-    @Autowired
-    private FileRepository fileRepository;
-
-
-    private CloudinaryService cloudinaryService = new CloudinaryService();
-
 
     @Override
     public Collection<Trainer> findAll() {
@@ -36,16 +30,7 @@ public class TrainerServiceImpl implements TrainerService{
     }
 
     @Override
-    public Trainer postTrainer(Trainer trainer, MultipartFile multipartFile) throws IOException{
-
-        Map result = cloudinaryService.upload(multipartFile);
-
-        File file = new File(result.get("public_id").toString(), result.get("secure_url").toString());
-
-        fileRepository.save(file);
-
-        trainer.setFile(file);
-
+    public Trainer postTrainer(Trainer trainer){
         return trainerRepository.save(trainer);
     }
 }

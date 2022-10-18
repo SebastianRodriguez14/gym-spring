@@ -21,8 +21,7 @@ public class TrainerController {
     @Autowired
     private TrainerService trainerService;
 
-    @Autowired
-    private CloudinaryService cloudinaryService;
+
 
     @GetMapping("/all")
     public Collection<Trainer> findAll(){
@@ -35,15 +34,10 @@ public class TrainerController {
     }
 
     @PostMapping("/post")
-    public Trainer postTrainer(@RequestParam MultipartFile multipartFile, @RequestBody Trainer trainer) throws IOException {
-        System.out.println("hasdad");
-        return trainerService.postTrainer(trainer, multipartFile);
+    public Trainer postTrainer(@RequestBody Trainer trainer) {
+        return trainerService.postTrainer(trainer);
     }
 
-    @DeleteMapping("/upload/{id}")
-    public ResponseEntity<Map> upload(@PathVariable String id) throws IOException {
-        Map result = cloudinaryService.delete(id);
-        return new ResponseEntity(result, HttpStatus.OK);
-    }
+
 
 }

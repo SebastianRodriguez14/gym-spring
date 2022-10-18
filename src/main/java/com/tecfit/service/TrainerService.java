@@ -10,6 +10,6 @@ public interface TrainerService {
     Collection<Trainer> findAll();
     Trainer findById(Integer id);
 
-    Trainer postTrainer(Trainer trainer, MultipartFile multipartFile) throws IOException;
+    Trainer postTrainer(Trainer trainer);
 
 }

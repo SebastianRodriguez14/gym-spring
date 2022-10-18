@@ -35,7 +35,7 @@ public class TrainerController {
     }
 
     @PostMapping("/post")
-    public Trainer postTrainer(@RequestPart("multipartFile") MultipartFile multipartFile, @RequestPart("body") Trainer trainer) throws IOException {
+    public Trainer postTrainer(@RequestParam MultipartFile multipartFile, @RequestBody Trainer trainer) throws IOException {
         System.out.println("hasdad");
         return trainerService.postTrainer(trainer, multipartFile);
     }

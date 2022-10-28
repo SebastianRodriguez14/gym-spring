@@ -19,9 +19,12 @@ public class Exercise {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer Id_exercise;
+
+    @Column(name = "Name")
     private String Name;
-    private int Break;
-    private int Amount;
+
+    @Column(name = "Break_time")
+    private int Break_time;
 
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "File")
@@ -30,5 +33,8 @@ public class Exercise {
     @ManyToOne
     @JoinColumn(name = "Type")
     private Type Type;
+
+    @Column(name = "Amount")
+    private int Amount;
 
 }

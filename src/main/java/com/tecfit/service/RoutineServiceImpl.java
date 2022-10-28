@@ -6,7 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
-public class RoutineServiceImpl implements RoutineService{
+public class RoutineServiceImpl implements RoutineService {
 
     @Autowired
     private RoutineRepository routineRepository;
@@ -14,5 +14,9 @@ public class RoutineServiceImpl implements RoutineService{
     @Override
     public Routine findById(int id) {
         return routineRepository.findById(id).get();
+    }
+    @Override
+    public Routine findByBodypart (Integer id_part) throws Exception {
+        return routineRepository.findByBodypart(id_part);
     }
 }

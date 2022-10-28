@@ -1,6 +1,5 @@
 package com.tecfit.rest;
 
-import com.tecfit.model.Membership;
 import com.tecfit.model.Routine;
 import com.tecfit.service.RoutineService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,5 +20,8 @@ public class RoutineController {
     public Routine findById(@PathVariable("id") int id){
         return routineService.findById(id);
     }
-
+    @GetMapping("/search/{id_part}")
+    public Routine findByBodypart(@PathVariable("id_part")int id_part)throws Exception{
+        return routineService.findByBodypart(id_part);
+    }
 }

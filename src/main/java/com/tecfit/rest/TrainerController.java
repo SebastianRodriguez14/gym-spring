@@ -1,11 +1,17 @@
 package com.tecfit.rest;
 
 import com.tecfit.model.Trainer;
+import com.tecfit.service.CloudinaryService;
 import com.tecfit.service.TrainerService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
+import java.io.IOException;
 import java.util.Collection;
+import java.util.Map;
 
 @RestController 
 @CrossOrigin("*")
@@ -14,6 +20,8 @@ public class TrainerController {
 
     @Autowired
     private TrainerService trainerService;
+
+
 
     @GetMapping("/all")
     public Collection<Trainer> findAll(){
@@ -24,4 +32,12 @@ public class TrainerController {
     public Trainer findById(@PathVariable("id") int id){
         return trainerService.findById(id);
     }
+
+    @PostMapping("/post")
+    public Trainer postTrainer(@RequestBody Trainer trainer) {
+        return trainerService.postTrainer(trainer);
+    }
+
+
+
 }

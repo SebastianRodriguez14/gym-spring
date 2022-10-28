@@ -5,6 +5,8 @@ import com.tecfit.repository.RoutineRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Collection;
+
 @Service
 public class RoutineServiceImpl implements RoutineService {
 
@@ -16,7 +18,7 @@ public class RoutineServiceImpl implements RoutineService {
         return routineRepository.findById(id).get();
     }
     @Override
-    public Routine findByBodypart (Integer id_part) throws Exception {
+    public Collection<Routine> findByBodypart (Integer id_part) throws Exception {
         return routineRepository.findByBodypart(id_part);
     }
 }

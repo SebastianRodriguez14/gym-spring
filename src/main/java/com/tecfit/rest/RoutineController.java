@@ -8,6 +8,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.Collection;
+
 @RestController
 @RequestMapping("routine")
 public class RoutineController {
@@ -21,7 +23,7 @@ public class RoutineController {
         return routineService.findById(id);
     }
     @GetMapping("/search/{id_part}")
-    public Routine findByBodypart(@PathVariable("id_part")int id_part)throws Exception{
+    public Collection<Routine> findByBodypart(@PathVariable("id_part")int id_part)throws Exception{
         return routineService.findByBodypart(id_part);
     }
 }

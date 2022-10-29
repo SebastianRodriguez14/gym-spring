@@ -11,4 +11,6 @@ public interface MembershipService {
 
     Optional<Membership> checkMembershipByUser(Integer id_user);
 
+    Membership save(Membership membership);
+
 }

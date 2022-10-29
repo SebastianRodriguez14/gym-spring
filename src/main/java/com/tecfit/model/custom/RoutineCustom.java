@@ -7,6 +7,11 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+
+
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
@@ -15,6 +20,8 @@ public class RoutineCustom {
 
     private Integer Id_routine;
     private String Name;
+
     private File Image;
+
 
 }

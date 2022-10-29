@@ -2,6 +2,7 @@ package com.tecfit.rest;
 
 import com.tecfit.model.Exercise;
 import com.tecfit.model.Routine;
+import com.tecfit.model.custom.RoutineCustom;
 import com.tecfit.service.RoutineService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -24,7 +25,7 @@ public class RoutineController {
         return routineService.findById(id);
     }
     @GetMapping("/search/{id_part}")
-    public Collection<Routine> findByBodypart(@PathVariable("id_part")int id_part)throws Exception{
+    public Collection<RoutineCustom> findByBodypart(@PathVariable("id_part")int id_part)throws Exception{
         return routineService.findByBodypart(id_part);
     }
 

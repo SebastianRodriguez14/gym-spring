@@ -35,4 +35,10 @@ public class Routine {
         inverseJoinColumns = {@JoinColumn(name = "Exercise")}
     )
     private List<Exercise> Exercises = new ArrayList<Exercise>();
+
+    public Routine(Integer id_routine, String name, File image) {
+        Id_routine = id_routine;
+        Name = name;
+        Image = image;
+    }
 }

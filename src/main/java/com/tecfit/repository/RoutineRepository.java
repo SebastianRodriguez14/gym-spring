@@ -9,11 +9,15 @@ import org.springframework.data.repository.query.Param;
 import java.util.Collection;
 
 public interface RoutineRepository extends JpaRepository<Routine,Integer> {
-    @Query(value="select * from routine r inner join body_part p on r.Body_part= p.Id_part where p.Id_part = id_part;",nativeQuery = true)
-    Collection<Routine> findByBodypart(@Param("id_part")Integer Id_part) throws Exception;
+    @Query("select new Routine(r.Id_routine,r.Name,r.Image)from Routine r inner join Body_part p " +
+            "on p.Id_part= r.Id_routine where p.Id_part =:idpart")
+    Collection<Routine> findByBodypart(@Param("id_part")Integer idpart);
 
     @Query("SELECT new Exercise(e.Id_exercise, e.Name, e.Break_time,e.File, e.Type, e.Amount) from Exercise e inner join Routine_exercise re " +
             "on re.Exercise = e.Id_exercise where re.Routine = :id")
     Collection<Exercise> findExerciseByRoutine(@Param("id") Integer id);
+
+
+
 
 }

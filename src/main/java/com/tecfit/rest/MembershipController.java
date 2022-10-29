@@ -34,5 +34,9 @@ public class MembershipController {
 
     }
 
+    @PostMapping("/saveWithUser")
+    public Membership registerWithUser(@RequestBody Membership membership){
+        return membershipService.save(membership);
+    }
 
 }

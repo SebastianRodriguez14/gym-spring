@@ -1,12 +1,14 @@
 package com.tecfit.service;
 
 import com.tecfit.model.Membership;
+import com.tecfit.model.User;
 import com.tecfit.repository.MembershipRepository;
 import com.tecfit.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.Collection;
+import java.util.Date;
 import java.util.Optional;
 
 @Service
@@ -41,5 +43,14 @@ public class MembershipServiceImpl implements MembershipService{
 
         return membership;
 
+    }
+
+    @Override
+    public Membership save(Membership membership) {
+        User user = membership.getUser();
+        user.setMembership(true);
+        membership.setStart_date(new Date());
+        membership.setUser(userRepository.save(user));
+        return membershipRepository.save(membership);
     }
 }

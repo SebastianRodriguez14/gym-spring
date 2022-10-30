@@ -49,7 +49,6 @@ public class MembershipServiceImpl implements MembershipService{
     public Membership save(Membership membership) {
         User user = membership.getUser();
         user.setMembership(true);
-        membership.setStart_date(new Date());
         membership.setUser(userRepository.save(user));
         return membershipRepository.save(membership);
     }

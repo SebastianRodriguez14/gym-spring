@@ -2,6 +2,7 @@ package com.tecfit.rest;
 
 import com.tecfit.model.Exercise;
 import com.tecfit.model.Routine;
+import com.tecfit.model.custom.ExerciseCustom;
 import com.tecfit.model.custom.RoutineCustom;
 import com.tecfit.service.RoutineService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,7 +31,7 @@ public class RoutineController {
     }
 
     @GetMapping("/exercises/{id}")
-    public Collection<Exercise> listExercises(@PathVariable("id") int id){
+    public Collection<ExerciseCustom> listExercises(@PathVariable("id") int id){
         return routineService.findExerciseByRoutine(id);
     }
 }

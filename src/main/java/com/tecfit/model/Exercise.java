@@ -34,7 +34,4 @@ public class Exercise {
     @JoinColumn(name = "Type")
     private Type Type;
 
-    @Column(name = "Amount")
-    private int Amount;
-
 }

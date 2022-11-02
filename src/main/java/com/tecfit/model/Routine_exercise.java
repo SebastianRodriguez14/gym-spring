@@ -20,11 +20,13 @@ public class Routine_exercise implements Serializable {
     @Id
     @Column(name = "Routine")
     private  Integer Routine;
-
     @Id
     @Column(name = "Exercise")
     private Integer Exercise;
 
+    @Column(name = "Sets")
     private int Sets;
 
+    @Column(name = "Amount")
+    private int Amount;
 }

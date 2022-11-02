@@ -19,7 +19,11 @@ public class Routine {
     @Id
     private Integer Id_routine;
 
+    @Column(name = "Name")
     private String Name;
+
+    @Column(name = "Status")
+    private Boolean Status;
 
     @ManyToOne
     @JoinColumn(name = "Body_part")
@@ -36,9 +40,10 @@ public class Routine {
     )
     private List<Exercise> Exercises = new ArrayList<Exercise>();
 
-    public Routine(Integer id_routine, String name, File image) {
+    public Routine(Integer id_routine, String name, File image, Boolean status) {
         Id_routine = id_routine;
         Name = name;
         Image = image;
+        Status = status;
     }
 }

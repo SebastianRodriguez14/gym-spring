@@ -25,4 +25,11 @@ public class FileServiceImpl implements FileService{
 
         return fileRepository.save(file);
     }
+
+    @Override
+    public File updateFile(MultipartFile multipartFile, String idFile) throws IOException {
+        cloudinaryService.delete(idFile);
+        fileRepository.deleteById(idFile);
+        return postFile(multipartFile);
+    }
 }

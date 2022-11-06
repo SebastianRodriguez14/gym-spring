@@ -33,4 +33,9 @@ public class TrainerServiceImpl implements TrainerService{
     public Trainer postTrainer(Trainer trainer){
         return trainerRepository.save(trainer);
     }
+
+    @Override
+    public Trainer putTrainer(Trainer trainer) {
+        return trainerRepository.save(trainer);
+    }
 }

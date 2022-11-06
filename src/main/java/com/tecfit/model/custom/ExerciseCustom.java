@@ -17,9 +17,7 @@ import javax.persistence.Id;
 public class ExerciseCustom {
 
     private Integer Id_exercise;
-
     private String Name;
-
     private Integer Break_time;
     private Integer Amount;
     private Integer Sets;

@@ -9,7 +9,7 @@ import java.util.Collection;
 public interface TrainerService {
     Collection<Trainer> findAll();
     Trainer findById(Integer id);
-
     Trainer postTrainer(Trainer trainer);
+    Trainer putTrainer(Trainer trainer);
 
 }

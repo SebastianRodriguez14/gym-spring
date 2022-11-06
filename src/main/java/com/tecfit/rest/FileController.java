@@ -25,6 +25,13 @@ public class FileController {
         return fileService.postFile(multipartFile);
     }
 
+    @PutMapping("/put")
+    public File putFile(@RequestParam MultipartFile multipartFile, @RequestParam String idFile) throws IOException{
+        return fileService.updateFile(multipartFile, idFile);
+    }
+
+
+
 //    @DeleteMapping("/delete/{id}")
 //    public ResponseEntity<Map> deleteFile(@PathVariable String id) throws IOException {
 //        Map result = cloudinaryService.delete(id);

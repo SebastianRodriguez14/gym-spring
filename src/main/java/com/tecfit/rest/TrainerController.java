@@ -38,6 +38,10 @@ public class TrainerController {
         return trainerService.postTrainer(trainer);
     }
 
-
+    @PutMapping("/put/{id}")
+    public Trainer putTrainer(@RequestBody Trainer trainer, @PathVariable Integer id){
+        trainer.setId_trainer(id);
+        return trainerService.putTrainer(trainer);
+    }
 
 }

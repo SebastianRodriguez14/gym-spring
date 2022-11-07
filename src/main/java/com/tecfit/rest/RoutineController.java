@@ -34,4 +34,9 @@ public class RoutineController {
     public Collection<ExerciseCustom> listExercises(@PathVariable("id") int id){
         return routineService.findExerciseByRoutine(id);
     }
+
+    @GetMapping("list_random")
+    public Collection<RoutineCustom> listRoutineRandom(){
+        return routineService.listRoutineRandom();
+    }
 }

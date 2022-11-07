@@ -13,6 +13,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Random;
 
 @Service
 public class RoutineServiceImpl implements RoutineService {
@@ -46,5 +47,17 @@ public class RoutineServiceImpl implements RoutineService {
     @Override
     public Collection<ExerciseCustom> findExerciseByRoutine(Integer id) {
         return routineRepository.findExerciseByRoutine(id);
+    }
+
+    @Override
+    public Collection<RoutineCustom> listRoutineRandom() {
+        Collection<Routine> routines = routineRepository.listRoutineRandom();
+        Collection<RoutineCustom> routineCustoms = new ArrayList<>();
+
+        for (Routine routine : routines){
+            routineCustoms.add(new RoutineCustom(routine.getId_routine(), routine.getName(), routine.getImage(), routine.getStatus()));
+        }
+
+        return routineCustoms;
     }
 }

@@ -13,4 +13,6 @@ public interface RoutineService {
     Collection<RoutineCustom> findByBodypart(Integer id_part);
 
     Collection<ExerciseCustom> findExerciseByRoutine(Integer id);
+
+    Collection<RoutineCustom> listRoutineRandom();
 }

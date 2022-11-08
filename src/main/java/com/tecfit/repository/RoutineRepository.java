@@ -19,7 +19,7 @@ public interface RoutineRepository extends JpaRepository<Routine,Integer> {
             "on re.Exercise = e.Id_exercise where re.Routine = :id")
     Collection<ExerciseCustom> findExerciseByRoutine(@Param("id") Integer id);
 
-
-
+    @Query(value = "select * from routine r ORDER BY RAND() LIMIT 3",nativeQuery = true)
+    Collection<Routine> listRoutineRandom();
 
 }

@@ -30,8 +30,6 @@ public class FileController {
         return fileService.updateFile(multipartFile, idFile);
     }
 
-
-
 //    @DeleteMapping("/delete/{id}")
 //    public ResponseEntity<Map> deleteFile(@PathVariable String id) throws IOException {
 //        Map result = cloudinaryService.delete(id);

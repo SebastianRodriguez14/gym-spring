@@ -18,7 +18,7 @@ import javax.persistence.Table;
 public class File {
 
     @Id
-    private String Id_file;
+    private Integer Id_file;
 
     private String Url;
 

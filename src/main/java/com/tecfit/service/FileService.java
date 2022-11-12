@@ -10,6 +10,6 @@ public interface FileService {
 
     File postFile(MultipartFile multipartFile) throws IOException;
 
-    File updateFile(MultipartFile multipartFile, String idFile) throws IOException;
+    File updateFile(MultipartFile multipartFile, Integer idFile) throws IOException;
 
 }

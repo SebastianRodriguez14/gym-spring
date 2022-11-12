@@ -26,7 +26,7 @@ public class FileController {
     }
 
     @PutMapping("/put")
-    public File putFile(@RequestParam MultipartFile multipartFile, @RequestParam String idFile) throws IOException{
+    public File putFile(@RequestParam MultipartFile multipartFile, @RequestParam Integer idFile) throws IOException{
         return fileService.updateFile(multipartFile, idFile);
     }
 

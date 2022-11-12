@@ -21,15 +21,28 @@ public class FileServiceImpl implements FileService{
     public File postFile(MultipartFile multipartFile) throws IOException {
         Map result = cloudinaryService.upload(multipartFile);
 
-        File file = new File(result.get("public_id").toString(), result.get("secure_url").toString());
+        File file = new File(0, result.get("secure_url").toString());
 
         return fileRepository.save(file);
     }
 
     @Override
-    public File updateFile(MultipartFile multipartFile, String idFile) throws IOException {
-        cloudinaryService.delete(idFile);
-        fileRepository.deleteById(idFile);
-        return postFile(multipartFile);
+    public File updateFile(MultipartFile multipartFile, Integer idFile) throws IOException {
+
+        File fileFind = fileRepository.findById(idFile).get();
+
+        String[] parts_url = fileFind.getUrl().split("/");
+        String[] parts_id_img = parts_url[parts_url.length-1].split("\\.");
+        String id_image = parts_id_img[0];
+
+        System.out.println(id_image);
+
+        cloudinaryService.delete(id_image);
+
+        Map result = cloudinaryService.upload(multipartFile);
+
+        File file = new File(idFile, result.get("secure_url").toString());
+
+        return fileRepository.save(file);
     }
 }

@@ -45,4 +45,14 @@ public class FileServiceImpl implements FileService{
 
         return fileRepository.save(file);
     }
+
+    @Override
+    public void deleteFile(Integer idFile) throws IOException {
+        File fileFind = fileRepository.findById(idFile).get();
+        String[] parts_url = fileFind.getUrl().split("/");
+        String[] parts_id_img = parts_url[parts_url.length-1].split("\\.");
+        String id_image = parts_id_img[0];
+        cloudinaryService.delete(id_image);
+        fileRepository.deleteById(idFile);
+    }
 }

@@ -2,6 +2,7 @@ package com.tecfit.rest;
 
 import com.tecfit.model.Trainer;
 import com.tecfit.service.CloudinaryService;
+import com.tecfit.service.FileService;
 import com.tecfit.service.TrainerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -21,7 +22,8 @@ public class TrainerController {
     @Autowired
     private TrainerService trainerService;
 
-
+    @Autowired
+    private FileService fileService;
 
     @GetMapping("/all")
     public Collection<Trainer> findAll(){
@@ -42,6 +44,19 @@ public class TrainerController {
     public Trainer putTrainer(@RequestBody Trainer trainer, @PathVariable Integer id){
         trainer.setId_trainer(id);
         return trainerService.putTrainer(trainer);
+    }
+
+    @DeleteMapping("/delete/{id}")
+    public ResponseEntity<?> deleteTrainer(@PathVariable("id") int id) throws IOException {
+        Trainer trainer = new Trainer();
+        trainer = trainerService.findById(id);
+        if(trainer != null){
+            fileService.deleteFile(trainer.getFile().getId_file());
+            trainerService.deleteTrainer(id);
+            return  new ResponseEntity<>("Trainer Removed", HttpStatus.OK);
+        }else{
+            return  new ResponseEntity<>("Triner Not Found", HttpStatus.NOT_FOUND);
+        }
     }
 
 }

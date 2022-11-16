@@ -12,4 +12,5 @@ public interface FileService {
 
     File updateFile(MultipartFile multipartFile, Integer idFile) throws IOException;
 
+    void deleteFile(Integer idFile) throws IOException;
 }

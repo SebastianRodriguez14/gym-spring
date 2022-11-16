@@ -12,4 +12,6 @@ public interface TrainerService {
     Trainer postTrainer(Trainer trainer);
     Trainer putTrainer(Trainer trainer);
 
+    void deleteTrainer(Integer id);
+
 }

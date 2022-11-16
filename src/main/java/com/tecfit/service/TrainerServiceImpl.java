@@ -26,7 +26,7 @@ public class TrainerServiceImpl implements TrainerService{
 
     @Override
     public Trainer findById(Integer id) {
-        return trainerRepository.findById(id).get();
+        return trainerRepository.findById(id).orElse(null);
     }
 
     @Override
@@ -37,5 +37,10 @@ public class TrainerServiceImpl implements TrainerService{
     @Override
     public Trainer putTrainer(Trainer trainer) {
         return trainerRepository.save(trainer);
+    }
+
+    @Override
+    public void deleteTrainer(Integer id) {
+        trainerRepository.deleteById(id);
     }
 }

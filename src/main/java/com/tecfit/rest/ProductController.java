@@ -3,10 +3,7 @@ package com.tecfit.rest;
 import com.tecfit.model.Product;
 import com.tecfit.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.Collection;
 
@@ -21,5 +18,10 @@ public class ProductController {
     @GetMapping("/all")
     public Collection<Product>findAll(){
         return productService.findAll();
+    }
+
+    @PostMapping("/post")
+    public Product add(@RequestBody Product product){
+        return productService.save(product);
     }
 }

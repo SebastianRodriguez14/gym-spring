@@ -12,7 +12,7 @@ import java.util.Collection;
 
 public interface RoutineRepository extends JpaRepository<Routine,Integer> {
     @Query("select new Routine(r.Id_routine,r.Name,r.Image, r.Status) from Routine r inner join Body_part p " +
-            "on p.Id_part= r.Id_routine where p.Id_part =:idpart")
+            "on p.Id_part= r.Body_part.Id_part where p.Id_part =:idpart")
     Collection<Routine> findByBodypart(@Param("idpart")Integer idpart);
 
     @Query("SELECT new com.tecfit.model.custom.ExerciseCustom(e.Id_exercise, e.Name, e.Break_time, re.Amount, re.Sets, e.File, e.Type) from Routine_exercise re inner join Exercise e " +

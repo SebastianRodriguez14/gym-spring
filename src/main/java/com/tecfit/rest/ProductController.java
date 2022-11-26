@@ -45,4 +45,10 @@ public class ProductController {
             return  new ResponseEntity<>("Product Not Found", HttpStatus.NOT_FOUND);
         }
     }
+
+    @PutMapping("/put/{id}")
+    public Product putProduct(@RequestBody Product product, @PathVariable Integer id){
+        product.setId_product(id);
+        return productService.putProduct(product);
+    }
 }

@@ -52,4 +52,13 @@ public class MembershipServiceImpl implements MembershipService{
         membership.setUser(userRepository.save(user));
         return membershipRepository.save(membership);
     }
+
+    @Override
+    public Membership saveMembership(Membership membership) {
+        User user = userRepository.getById(membership.getUser().getId_user());
+        user.setMembership(true);
+        membership.setUser(userRepository.save(user));
+        return membershipRepository.save(membership);
+
+    }
 }

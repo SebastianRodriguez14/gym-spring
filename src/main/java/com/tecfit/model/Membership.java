@@ -6,6 +6,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.util.Date;
 
 @Data
@@ -14,7 +15,8 @@ import java.util.Date;
 @AllArgsConstructor
 @Entity
 @Table(name = "membership")
-public class Membership {
+public class Membership implements Serializable {
+    private static final long serialVersionUID = 1L;
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

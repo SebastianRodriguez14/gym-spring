@@ -13,4 +13,6 @@ public interface MembershipService {
 
     Membership save(Membership membership);
 
+    Membership saveMembership(Membership membership);
+
 }

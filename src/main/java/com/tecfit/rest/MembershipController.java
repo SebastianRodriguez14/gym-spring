@@ -50,9 +50,6 @@ public class MembershipController {
         User user = new User();
         user.setId_user(id);
         membership.setUser(user);
-        membership.setStart_date(new Date(membership.getStart_date().getTime() + (1000 * 60 * 60 * 24)));
-        membership.setExpiration_date(new Date(membership.getExpiration_date().getTime() + (1000 * 60 * 60 * 24)));
-
         return membershipService.saveMembership(membership);
     }
 

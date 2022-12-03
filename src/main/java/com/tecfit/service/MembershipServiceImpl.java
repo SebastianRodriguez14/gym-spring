@@ -56,6 +56,13 @@ public class MembershipServiceImpl implements MembershipService{
     }
 
     @Override
+    public Collection<Membership> membershipsToFinish() {
+        Date now = new Date();
+        System.out.println(new Date( now.getTime() + (5000 * 60 * 60 * 24)));
+        return membershipRepository.membershipsToFinish(new Date( now.getTime() + (5000 * 60 * 60 * 24)));
+    }
+
+    @Override
     public Membership saveMembership(Membership membership) {
         User user = userRepository.getById(membership.getUser().getId_user());
         user.setMembership(true);

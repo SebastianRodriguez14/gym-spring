@@ -15,6 +15,8 @@ public interface MembershipService {
 
     Membership save(Membership membership);
 
+    Collection<Membership> membershipsToFinish();
+
     Membership saveMembership(Membership membership);
 
     void updateExpiryDate(AnyDate date, Integer id);

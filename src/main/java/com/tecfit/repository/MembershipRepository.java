@@ -16,6 +16,9 @@ public interface MembershipRepository extends JpaRepository<Membership, Integer>
     Optional<Membership> checkMembershipByUser(@Param("id_user") Integer id_user);
 
 
+    @Query("select m from Membership m where m.Expiration_date between current_date and :pw")
+    Collection<Membership> membershipsToFinish(@Param("pw")Date plusaWeek);
+
     @Modifying
     @Query("update Membership m set m.Expiration_date = :date where m.Id_membership = :id")
     void updateExpiryDate(@Param("date")Date date, @Param("id") Integer id );

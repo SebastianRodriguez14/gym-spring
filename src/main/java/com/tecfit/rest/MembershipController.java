@@ -40,6 +40,11 @@ public class MembershipController {
 
     }
 
+    @GetMapping("/toFinish")
+    public Collection<Membership> listToFinish(){
+        return membershipService.membershipsToFinish();
+    }
+
     @PostMapping("/saveWithUser")
     public Membership registerWithUser(@RequestBody Membership membership){
         return membershipService.save(membership);

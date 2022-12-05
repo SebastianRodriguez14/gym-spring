@@ -33,4 +33,9 @@ public class UserServiceImpl implements UserService{
         return userRepository.findByEmail(Email);
     }
 
+    @Override
+    public User commonSave(User user) {
+        return userRepository.save(user);
+    }
+
 }

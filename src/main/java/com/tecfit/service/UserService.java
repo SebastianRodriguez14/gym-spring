@@ -9,4 +9,5 @@ public interface UserService {
     Collection<User> findAll();
     User save(User user);
     User findByEmail(String Email) throws Exception;
+    User commonSave(User user);
 }

@@ -2,7 +2,7 @@ package com.tecfit.service;
 
 import com.tecfit.model.Membership;
 import com.tecfit.model.User;
-import com.tecfit.model.custom.AnyDate;
+import com.tecfit.model.custom.ExpiryDate;
 import com.tecfit.repository.MembershipRepository;
 import com.tecfit.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -73,7 +73,7 @@ public class MembershipServiceImpl implements MembershipService{
 
     @Override
     @Transactional
-    public void updateExpiryDate(AnyDate date, Integer id) {
-        membershipRepository.updateExpiryDate(new Date(date.getDate().getTime() + (1000 * 60 * 60 * 24)) , id);
+    public void updateExpiryDate(ExpiryDate expiry, Integer id) {
+        membershipRepository.updateExpiryDate(new Date(expiry.getDate().getTime() + (1000 * 60 * 60 * 24)),expiry.getPayment(),id);
     }
 }

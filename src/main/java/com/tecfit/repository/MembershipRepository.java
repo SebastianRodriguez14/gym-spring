@@ -20,6 +20,6 @@ public interface MembershipRepository extends JpaRepository<Membership, Integer>
     Collection<Membership> membershipsToFinish(@Param("pw")Date plusaWeek);
 
     @Modifying
-    @Query("update Membership m set m.Expiration_date = :date where m.Id_membership = :id")
-    void updateExpiryDate(@Param("date")Date date, @Param("id") Integer id );
+    @Query("update Membership m set m.Expiration_date = :date, m.Payment = m.Payment + :payment where m.Id_membership = :id")
+    void updateExpiryDate(@Param("date")Date date, @Param("payment") Double payment, @Param("id") Integer id );
 }

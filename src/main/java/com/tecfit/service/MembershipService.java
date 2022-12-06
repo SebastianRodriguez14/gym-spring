@@ -1,10 +1,9 @@
 package com.tecfit.service;
 
 import com.tecfit.model.Membership;
-import com.tecfit.model.custom.AnyDate;
+import com.tecfit.model.custom.ExpiryDate;
 
 import java.util.Collection;
-import java.util.Date;
 import java.util.Optional;
 
 public interface MembershipService {
@@ -19,6 +18,6 @@ public interface MembershipService {
 
     Membership saveMembership(Membership membership);
 
-    void updateExpiryDate(AnyDate date, Integer id);
+    void updateExpiryDate(ExpiryDate expiry, Integer id);
 
 }

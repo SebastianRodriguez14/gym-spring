@@ -2,17 +2,14 @@ package com.tecfit.rest;
 
 import com.tecfit.model.Membership;
 import com.tecfit.model.User;
-import com.tecfit.model.custom.AnyDate;
+import com.tecfit.model.custom.ExpiryDate;
 import com.tecfit.service.MembershipService;
-import org.hibernate.mapping.Any;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import javax.swing.text.html.Option;
 import java.util.Collection;
-import java.util.Date;
 import java.util.Optional;
 
 @RestController
@@ -59,8 +56,8 @@ public class MembershipController {
     }
 
     @PutMapping("/update/{id_membership}")
-    public ResponseEntity<?> updateExpiryDate(@RequestBody AnyDate date, @PathVariable("id_membership") int id){
-        membershipService.updateExpiryDate(date, id);
+    public ResponseEntity<?> updateExpiryDate(@RequestBody ExpiryDate expiry, @PathVariable("id_membership") int id){
+        membershipService.updateExpiryDate(expiry, id);
         return new ResponseEntity<>("Membership Updated",HttpStatus.OK);
     }
 

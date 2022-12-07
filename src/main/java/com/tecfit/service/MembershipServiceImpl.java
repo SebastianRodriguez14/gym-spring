@@ -74,6 +74,6 @@ public class MembershipServiceImpl implements MembershipService{
     @Override
     @Transactional
     public void updateExpiryDate(ExpiryDate expiry, Integer id) {
-        membershipRepository.updateExpiryDate(new Date(expiry.getDate().getTime() + (1000 * 60 * 60 * 24)),expiry.getPayment(),id);
+        membershipRepository.updateExpiryDate(expiry.getDate(),expiry.getPayment(),id);
     }
 }

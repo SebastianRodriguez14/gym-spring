@@ -12,7 +12,7 @@ import java.util.Optional;
 
 public interface MembershipRepository extends JpaRepository<Membership, Integer> {
 
-    @Query(value = "SELECT m.Id_membership, m.Start_date, m.Expiration_date, m.Payment, m.User FROM user u join membership m on (u.Id_user = m.User) WHERE u.Id_user = :id_user && (m.Start_date <= NOW() && m.Expiration_date >= NOW())", nativeQuery = true)
+    @Query(value = "SELECT m.Id_membership, m.Start_date, m.Expiration_date, m.Payment, m.User FROM user u join membership m on (u.Id_user = m.User) WHERE u.Id_user = :id_user && (m.Start_date <= CURRENT_DATE && m.Expiration_date >= CURRENT_DATE)", nativeQuery = true)
     Optional<Membership> checkMembershipByUser(@Param("id_user") Integer id_user);
 
 
